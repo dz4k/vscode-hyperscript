@@ -1,0 +1,43 @@
+
+# Grammar To-Do
+
+- [X] keywords
+    - [X] features
+    - [X] commands
+    - [X] control flow
+    - [X] expressions
+    - [X] operators
+- [ ] literals
+    - [ ] strings
+        - [X] normal
+        - [X] templates
+        - [ ] naked strings
+            - [ ] `fetch`
+            - [ ] `on`
+            - [ ] `send`
+            - [ ] `trigger`
+            - [ ] `transition`
+            - [ ] `eventsource`
+            - [ ] `socket`
+                - might want to check the parser on this
+    - [ ] numbers
+        - [ ] time expressions
+    - [ ] booleans
+    - [ ] objects
+        - [ ] computed keys
+    - [ ] arrays
+        - these don't need highlighting i think, not sure
+- [ ] CSS refs
+    - [ ] class
+        - [ ] dynamic class
+    - [ ] id
+        - [ ] dynamic id
+    - [ ] query
+        - [ ] templated query
+    - [ ] attribute
+        - [ ] short form `@href`
+        - [ ] long form `[@lang="tr"]`
+- [ ] builtin identifiers
+    - I, me, my, it, its, result, event, target, detail, body, you, your, yourself, String, Number, Int, Float, Date, Array, HTML, Fragment, JSON, Object, Values
+- [ ] [blocks](https://hyperscript.org/expressions/block-literal)
+- [ ] inline JS
