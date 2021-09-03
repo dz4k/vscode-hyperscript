@@ -3,6 +3,9 @@
 	"name": "_hyperscript",
 	"patterns": [
 		{
+			"include": "#commands"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -11,10 +14,27 @@
 	],
 	"repository": {
 		"keywords": {
+			"name": "keyword._hyperscript",
 			"patterns": [
 				{
 					"name": "keyword.control._hyperscript",
-					"match": "\\b(on|def|js|worker|eventsource|socket|init|behavior|install|require|catch|add|async|call|get|hide|measure|if|else|js|log|put|remove|repeat forever|repeat for|repeat in|repeat while|repeat until event|repeat until|repeat|return|send|settle|set|show|take|throw|toggle between|toggle|transition|trigger|wait for|wait|fetch|tell|go|increment|decrement|halt|make an|make a|make|then|end|while|until|for|in|from|to|with|over|into|before|after|at end of|at start of|is an|is a|is not|is|am|as|and|or|no|closest|the|of|first|last|random|local|element|global|on|seconds|milliseconds|(\\s)s|(\\s)ms)\\b"
+					"match": "\\b(catch|if|else|js|log|put|remove|repeat forever|repeat for|repeat in|repeat while|repeat until event|repeat until|repeat|then|end|while|until|unless|for)\\b"
+				},
+				{
+					"name": "keyword.other.command._hyperscript",
+					"match": "\\b(add|async|call|get|hide|measure|add|async|call|get|hide|measure|return|send|settle|set|show|take|throw|toggle between|toggle|transition|trigger|wait for|wait|fetch|tell|go|increment|decrement|halt|make an|make a|make)\\b"
+				},
+				{
+					"name": "keyword.other.feature._hyperscript",
+					"match": "\\b(on|def|js|worker|eventsource|socket|init|behavior|install|require)\\b"
+				},
+				{
+					"name": "keyword.operator.expression._hyperscript",
+					"match": "\\b(in|from|to|with|over|into|before|after|at end of|at start of|is an|is a|is not|is|am|as|and|or|no|closest|the|of|first|last|random|local|element|global|on|seconds|milliseconds|(\\s)s|(\\s)ms)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\b(\\+|\\s-\\s|\\/|\\*|\\|->|<\\s|>|<=|>===|==|=|!==|!=|=|\\.\\.|([^\\d\\s]|^)\\.|\\%|\\||!|\\$|'s)\\b"
 				}
 			]
 		},
@@ -24,19 +44,31 @@
 					"name": "string.quoted.double._hyperscript",
 					"begin": "\"",
 					"end": "\"",
-					"include": "#inside-string"
+					"patterns": [
+						{
+							"include": "#inside-string"
+						}
+					]
 				},
 				{
 					"name": "string.quoted.double._hyperscript",
 					"begin": "'",
 					"end": "'",
-					"include": "#inside-string"
+					"patterns": [
+						{
+							"include": "#inside-string"
+						}
+					]
 				},
 				{
 					"name": "string.interpolated",
 					"begin": "`",
 					"end": "`",
-					"include": "#template"
+					"patterns": [
+						{
+							"include": "#template"
+						}
+					]
 				}
 			]
 		},
@@ -51,7 +83,14 @@
 		"template": {
 			"patterns": [
 				{
-					"name": "interpolation"
+					"name": "meta.template.expression",
+					"begin": "\\$\\{",
+					"end": "\\}",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
 				}
 			]
 		}
