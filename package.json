@@ -1,0 +1,25 @@
+{
+    "name": "vscode-hyperscript-org",
+    "displayName": "_hyperscript",
+    "description": "language support for _hyperscript <https://hyperscript.org>",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "_hyperscript",
+            "aliases": ["_hyperscript", "_hyperscript"],
+            "extensions": ["._hs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "_hyperscript",
+            "scopeName": "source._hyperscript",
+            "path": "./syntaxes/_hyperscript.tmLanguage.json"
+        }]
+    }
+}
