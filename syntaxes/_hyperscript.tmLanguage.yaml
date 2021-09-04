@@ -99,9 +99,15 @@ repository:
           - include: $self
   simpleLiterals:
     patterns:
-      - name: constant.numeric
+      - name: constant.numeric._hyperscript
         match: '\d+(\.\d+)?'
-      - name: constant.language
+      - name: constant.language._hyperscript
         match: '\b(true|false|null|undefined)\b'
+      - name: support.variable._hyperscript.builtin-conversion
+        match: >-
+          (?x) \b(
+            # Conversions
+            String|Number|Int|Float|Date|Array|HTML|Fragment|JSON|Object|Values
+          )\b'
 scopeName: source._hyperscript
 

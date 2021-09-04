@@ -12,19 +12,19 @@
         - [X] normal
         - [X] templates
         - [ ] naked strings
-            - [ ] `fetch`
-            - [ ] `on`
-            - [ ] `wait for`
-            - [ ] `repeat until event`
-            - [ ] `send`
-            - [ ] `trigger`
+            - [X] `fetch`
+            - [-] ~~`on`~~
+            - [-] `wait for`
+            - [-] `repeat until event`
+            - [-] `send`
+            - [-] `trigger`
             - [ ] `transition`
-            - [ ] `eventsource`
-            - [ ] `socket`
+            - [X] `eventsource`
+            - [X] `socket`
                 - might want to check the parser on this
-    - [ ] numbers
+    - [X] numbers
         - [ ] time expressions
-    - [ ] booleans
+    - [X] booleans
     - [ ] objects
         - [ ] computed keys
     - [ ] arrays
@@ -39,7 +39,7 @@
     - [ ] attribute
         - [ ] short form `@href`
         - [ ] long form `[@lang="tr"]`
-- [ ] builtin identifiers
+- [X] builtin identifiers
     - I, me, my, it, its, result, event, target, detail, body, you, your, yourself, String, Number, Int, Float, Date, Array, HTML, Fragment, JSON, Object, Values
 - [ ] [blocks](https://hyperscript.org/expressions/block-literal)
 - [ ] inline JS
