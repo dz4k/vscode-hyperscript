@@ -21,6 +21,9 @@
     },
     {
       "include": "#cssRefs"
+    },
+    {
+      "include": "#inlineJS"
     }
   ],
   "repository": {
@@ -29,7 +32,7 @@
       "patterns": [
         {
           "name": "keyword.control._hyperscript",
-          "match": "(?x) \\b(\n  catch|if|else|js|log|put|remove|\n  repeat\\s+forever|repeat\\s+for|repeat\\s+in|repeat\\s+while|\n  repeat\\s+until\\s+event|repeat\\s+until|repeat|\n  then|end|while|until|unless|for\n)\\b"
+          "match": "(?x) \\b(\n  catch|if|else|log|put|remove|\n  repeat\\s+forever|repeat\\s+for|repeat\\s+in|repeat\\s+while|\n  repeat\\s+until\\s+event|repeat\\s+until|repeat|\n  then|end|while|until|unless|for\n)\\b"
         },
         {
           "name": "keyword.other.command._hyperscript",
@@ -37,7 +40,7 @@
         },
         {
           "name": "keyword.control.feature._hyperscript",
-          "match": "(?x) \\b(\n  on|def|js|worker|eventsource|socket|init|behavior|install|require\n)\\b"
+          "match": "(?x) \\b(\n  on|def|worker|eventsource|socket|init|behavior|install|require\n)\\b"
         },
         {
           "name": "keyword.operator.expression._hyperscript",
@@ -176,6 +179,30 @@
             },
             {
               "include": "source.css#selector-innards"
+            }
+          ]
+        }
+      ]
+    },
+    "inlineJS": {
+      "patterns": [
+        {
+          "name": "meta.embedded.line.js",
+          "begin": "\\b(js)\\b(\\(.*\\))?",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.command._hyperscript"
+            }
+          },
+          "end": "\\bend\\b",
+          "endCaptures": {
+            "0": {
+              "name": "keyword.other.command._hyperscript"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.js"
             }
           ]
         }
