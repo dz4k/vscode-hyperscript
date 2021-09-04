@@ -6,6 +6,7 @@ patterns:
     end: $
   - include: '#commands'
   - include: '#keywords'
+  - include: '#punctuation'
   - include: '#strings'
   - include: '#simpleLiterals'
   - include: '#cssRefs'
@@ -61,6 +62,16 @@ repository:
             event|target|detail|
             document|body
           )\b
+  punctuation:
+    patterns:
+      - name: punctuation.separator.comma._hyperscript
+        match: ','
+      - name: punctuation.separator.key-value._hyperscript
+        match: ':'
+      - name: meta.brace.round._hyperscript
+        match: '[()]'
+      - name: meta.brace.square._hyperscript
+        match: '[\[\]]'
   strings:
     patterns:
       - name: string.quoted.double._hyperscript
