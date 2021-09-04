@@ -23,16 +23,16 @@
             - [X] `socket`
                 - might want to check the parser on this
     - [X] numbers
-        - [ ] time expressions
+        - [X] time expressions
     - [X] booleans
     - [ ] objects
         - [ ] computed keys
     - [ ] arrays
         - these don't need highlighting i think, not sure
 - [ ] CSS refs
-    - [ ] class
+    - [X] class
         - [ ] dynamic class
-    - [ ] id
+    - [X] id
         - [ ] dynamic id
     - [ ] query
         - [ ] templated query
