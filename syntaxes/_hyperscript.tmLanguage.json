@@ -1,114 +1,120 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "_hyperscript",
-	"patterns": [
-		{
-			"name": "comment.line._hyperscript",
-			"begin": "--",
-			"end": "$"
-		},
-		{
-			"include": "#commands"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"name": "keyword._hyperscript",
-			"patterns": [
-				{
-					"name": "keyword.control._hyperscript",
-					"match": "\\b(catch|if|else|js|log|put|remove|repeat forever|repeat\\sfor|repeat\\sin|repeat\\swhile|repeat\\suntil\\sevent|repeat\\suntil|repeat|then|end|while|until|unless|for)\\b"
-				},
-				{
-					"name": "keyword.other.command._hyperscript",
-					"match": "\\b(add|async|call|get|hide|measure|add|async|call|get|hide|measure|return|send|settle|set|show|take|throw|toggle between|toggle|transition|trigger|wait for|wait|fetch|tell|go|increment|decrement|halt|make\\san|make\\sa|make)\\b"
-				},
-				{
-					"name": "keyword.other.feature._hyperscript",
-					"match": "\\b(on|def|js|worker|eventsource|socket|init|behavior|install|require)\\b"
-				},
-				{
-					"name": "keyword.operator.expression._hyperscript",
-					"match": "\\b(in|from|to|with|over|into|before|after|at\\send\\sof|at\\sstart\\sof|is\\san|is\\sa|is\\snot|is|am|as|and|or|no|closest|the|of|first|last|random|local|element|global|on|seconds|milliseconds|(\\s)s|(\\s)ms)\\b"
-				},
-				{
-					"name": "keyword.operator._hyperscript",
-					"match": "\\b(\\+|\\s-\\s|\\/|\\*|\\|->|<\\s|>|<=|>===|==|=|!==|!=|=|\\.\\.|([^\\d\\s]|^)\\.|\\%|\\||!|\\$|'s)\\b"
-				}
-			]
-		},
-		"strings": {
-			"patterns": [
-				{
-					"name": "string.quoted.double._hyperscript",
-					"begin": "\"",
-					"end": "\"",
-					"patterns": [
-						{
-							"include": "#inside-string"
-						}
-					]
-				},
-				{
-					"name": "string.quoted.single._hyperscript",
-					"begin": "'",
-					"end": "'",
-					"patterns": [
-						{
-							"include": "#inside-string"
-						}
-					]
-				},
-				{
-					"name": "string.interpolated._hyperscript",
-					"begin": "`",
-					"end": "`",
-					"patterns": [
-						{
-							"include": "#template"
-						}
-					]
-				},
-				{
-					"name": "string.unquoted._hyperscript.nakedString",
-					"begin": "(?<=(?:fetch|send|trigger|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+)[^'\"`]",
-					"end": "\\s"
-				},
-				{
-					"name": "string.unquoted._hyperscript.eventName",
-					"begin": "(?<=(on(\\severy)?|wait\\sfor|repeat\\suntil\\sevent)(\\(.*\\))\\s+(.*or\\s)?)[^'\"`]",
-					"end": "(?=[^A-Za-z0-9.:_])"
-				}
-			]
-		},
-		"inside-string": {
-			"patterns": [
-				{
-					"name": "constant.character.escape._hyperscript",
-					"match": "\\\\."
-				}
-			]
-		},
-		"template": {
-			"patterns": [
-				{
-					"name": "meta.template.expression._hyperscript",
-					"begin": "\\$\\{",
-					"end": "\\}",
-					"patterns": [
-						{
-							"include": "$self"
-						}
-					]
-				}
-			]
-		}
-	},
-	"scopeName": "source._hyperscript"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "_hyperscript",
+  "patterns": [
+    {
+      "name": "comment.line._hyperscript",
+      "begin": "--",
+      "end": "$"
+    },
+    {
+      "include": "#commands"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#simpleLiterals"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "name": "keyword._hyperscript",
+      "patterns": [
+        {
+          "name": "keyword.control._hyperscript",
+          "match": "(?x) \\b(\n  catch|if|else|js|log|put|remove|\n  repeat \\s forever|repeat \\s for|repeat \\s in|repeat \\s while|\n  repeat \\s until \\s event|repeat \\s until|repeat|\n  then|end|while|until|unless|for\n)\\b"
+        },
+        {
+          "name": "keyword.other.command._hyperscript",
+          "match": "(?x) \\b(\n  zoop|\n  add|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle between|toggle|\n  transition|trigger|wait \\s for|wait|fetch|tell|go|increment|\n  decrement|halt|make \\s an|make \\s a|make\n)\\b"
+        },
+        {
+          "name": "keyword.control.feature._hyperscript",
+          "match": "(?x) \\b(\n  on|def|js|worker|eventsource|socket|init|behavior|install|require\n)\\b"
+        },
+        {
+          "name": "keyword.operator.expression._hyperscript",
+          "match": "(?x) \\b(\n  in|from|to|with|over|into|before|after|\n  at \\s end \\s of|at \\s start \\s of|is \\s an|is \\s a|is \\s not|\n  is|am|as|and|or|no|closest|the|of|first|last|random|\n  local|element|global|on|\n  seconds|milliseconds|(?<= \\s) s|(?<= \\s) ms)\\b"
+        },
+        {
+          "name": "keyword.operator._hyperscript",
+          "match": "(?x) \\+|\\s-\\s|\\/|\\*|\\\\|->|<\\s|>|<=|>===|==|=|!==|!=|=|\\.\\.| ([A-Za-z0-9})\\]]|^)\\.|\\%|\\||!|\\$|'s"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double._hyperscript",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "include": "#inside-string"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single._hyperscript",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "include": "#inside-string"
+            }
+          ]
+        },
+        {
+          "name": "string.interpolated._hyperscript",
+          "begin": "`",
+          "end": "`",
+          "patterns": [
+            {
+              "include": "#template"
+            }
+          ]
+        },
+        {
+          "name": "string.unquoted._hyperscript.nakedString",
+          "begin": "(?x) (?<=\n  (?:fetch|send|trigger|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+\n) [^'\"`]",
+          "end": "\\s"
+        }
+      ]
+    },
+    "inside-string": {
+      "patterns": [
+        {
+          "name": "constant.character.escape._hyperscript",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "template": {
+      "patterns": [
+        {
+          "name": "meta.template.expression._hyperscript",
+          "begin": "\\$\\{",
+          "end": "\\}",
+          "patterns": [
+            {
+              "include": "$self"
+            }
+          ]
+        }
+      ]
+    },
+    "simpleLiterals": {
+      "patterns": [
+        {
+          "name": "constant.numeric",
+          "match": "\\d+(\\.\\d+)?"
+        }
+      ]
+    }
+  },
+  "scopeName": "source._hyperscript"
 }

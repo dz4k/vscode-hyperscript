@@ -10,16 +10,31 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "_hyperscript",
-            "aliases": ["_hyperscript", "_hyperscript"],
-            "extensions": ["._hs"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "_hyperscript",
-            "scopeName": "source._hyperscript",
-            "path": "./syntaxes/_hyperscript.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "_hyperscript",
+                "aliases": [
+                    "_hyperscript",
+                    "_hyperscript"
+                ],
+                "extensions": [
+                    "._hs"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "_hyperscript",
+                "scopeName": "source._hyperscript",
+                "path": "./syntaxes/_hyperscript.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json"
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0"
     }
 }
