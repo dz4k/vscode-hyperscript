@@ -1,7 +1,7 @@
 $schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 name: _hyperscript
 patterns:
-  - name: comment.line._hyperscript
+  - name: comment.line.double-dash._hyperscript
     begin: '--'
     end: $
   - include: '#commands'
@@ -17,8 +17,8 @@ repository:
           (?x)
           \b(
             catch|if|else|js|log|put|remove|
-            repeat \s forever|repeat \s for|repeat \s in|repeat \s while|
-            repeat \s until \s event|repeat \s until|repeat|
+            repeat \s+ forever|repeat \s+ for|repeat \s+ in|repeat \s+ while|
+            repeat \s+ until \s+ event|repeat \s+ until|repeat|
             then|end|while|until|unless|for
           )\b
       - name: keyword.other.command._hyperscript
@@ -27,8 +27,8 @@ repository:
           \b(
             add|async|call|get|hide|measure|add|async|call|get|hide|measure|
             return|send|settle|set|show|take|throw|toggle between|toggle|
-            transition|trigger|wait \s for|wait|fetch|tell|go|increment|
-            decrement|halt|make \s an|make \s a|make
+            transition|trigger|wait \s+ for|wait|fetch|tell|go|increment|
+            decrement|halt|make \s+ an|make \s+ a|make
           )\b
       - name: keyword.control.feature._hyperscript
         match: >-
@@ -41,15 +41,25 @@ repository:
           (?x)
           \b(
             in|from|to|with|over|into|before|after|
-            at \s end \s of|at \s start \s of|is \s an|is \s a|is \s not|
-            is|am|as|and|or|no|closest|the|of|first|last|random|
-            local|element|global|on|
-            seconds|milliseconds|(?<= \s) s|(?<= \s) ms)\b
+            at \s+ end \s+ of|at \s+ start \s+ of|is \s+ an|is \s+ a|is \s+ not|
+            is|am|as|and|or|no|closest|the|of|first|last|random|on|
+            seconds|milliseconds|(?<= \s+) s|(?<= \s+) ms)\b
       - name: keyword.operator._hyperscript
         match: >-
           (?x)
-          \+|\s-\s|\/|\*|\\|->|<\s|>|<=|>===|==|=|!==|!=|=|\.\.|
-          ([A-Za-z0-9})\]]|^)\.|\%|\||!|\$|'s
+          \+ | (?<=\s+) - (?=\s+) | \/ | \* |
+          \\ | -> |
+          <(?= \s+) | > | <= | >= | == | = | !== | != | =| \.\. |
+          (?<= [A-Za-z0-9\}\)\]] ) \. | \% | \| | ! | \$ | 's
+      - name: storage.modifier._hyperscript
+        match: '\b(local|element|module|global)\b'
+      - name: variable.language._hyperscript
+        match: >-
+          (?x) \b(
+            I|me|my|you|your|yourself|it|its|result|
+            event|target|detail|
+            document|body
+          )\b
   strings:
     patterns:
       - name: string.quoted.double._hyperscript
@@ -67,11 +77,12 @@ repository:
         end: '`'
         patterns:
           - include: '#template'
-      - name: string.unquoted._hyperscript.nakedString
+      - name: string.unquoted._hyperscript.naked-url 
+          markup.underline.link._hyperscript.naked-url
         begin: >-
           (?x)
           (?<=
-            (?:fetch|send|trigger|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
+            (?:fetch|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
           )
           [^'"`]
         end: \s
@@ -90,5 +101,7 @@ repository:
     patterns:
       - name: constant.numeric
         match: '\d+(\.\d+)?'
+      - name: constant.language
+        match: '\b(true|false|null|undefined)\b'
 scopeName: source._hyperscript
 
