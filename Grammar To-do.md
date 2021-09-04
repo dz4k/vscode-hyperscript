@@ -14,14 +14,13 @@
         - [ ] naked strings
             - [X] `fetch`
             - [-] ~~`on`~~
-            - [-] `wait for`
-            - [-] `repeat until event`
-            - [-] `send`
-            - [-] `trigger`
+            - [-] ~~`wait for`~~
+            - [-] ~~`repeat until event`~~
+            - [-] ~~`send`~~
+            - [-] ~~`trigger`~~
             - [ ] `transition`
             - [X] `eventsource`
             - [X] `socket`
-                - might want to check the parser on this
     - [X] numbers
         - [X] time expressions
     - [X] booleans
@@ -31,15 +30,15 @@
         - these don't need highlighting i think, not sure
 - [ ] CSS refs
     - [X] class
-        - [ ] dynamic class
+        - [X] dynamic class
     - [X] id
-        - [ ] dynamic id
-    - [ ] query
-        - [ ] templated query
+        - [X] dynamic id
+    - [X] query
+        - [X] templated query
     - [ ] attribute
         - [ ] short form `@href`
         - [ ] long form `[@lang="tr"]`
 - [X] builtin identifiers
     - I, me, my, it, its, result, event, target, detail, body, you, your, yourself, String, Number, Int, Float, Date, Array, HTML, Fragment, JSON, Object, Values
-- [ ] [blocks](https://hyperscript.org/expressions/block-literal)
+- [X] [blocks](https://hyperscript.org/expressions/block-literal)
 - [ ] inline JS
