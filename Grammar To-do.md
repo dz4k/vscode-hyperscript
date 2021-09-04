@@ -14,6 +14,8 @@
         - [ ] naked strings
             - [ ] `fetch`
             - [ ] `on`
+            - [ ] `wait for`
+            - [ ] `repeat until event`
             - [ ] `send`
             - [ ] `trigger`
             - [ ] `transition`

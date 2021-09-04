@@ -28,5 +28,15 @@
         ["\"", "\""],
         ["'", "'"],
         ["`", "`"]
-    ]
+    ],
+
+    "folding": {
+        "offSide": true
+    },
+
+    "indentationRules": {
+        "increaseIndentPattern": "^((?!(\\-\\-)).)*((\\b(on|def|js|worker|eventsource|socket|init|behavior|catch|if|else|js|repeat forever|repeat for|repeat in|repeat while|repeat until event|repeat until|repeat|for|do)\\b((?!\\b(end)\\b).)*)|(\\{\\s*))$"
+        "^\\s*().*",
+        "decreaseIndentPattern": "^\\s*((\\b(on|def|js|worker|eventsource|socket|init|behavior|catch|else|end|until)\\b)|(\\})|(\\)))"
+    }
 }

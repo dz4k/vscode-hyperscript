@@ -3,6 +3,11 @@
 	"name": "_hyperscript",
 	"patterns": [
 		{
+			"name": "comment.line._hyperscript",
+			"begin": "--",
+			"end": "$"
+		},
+		{
 			"include": "#commands"
 		},
 		{
@@ -18,11 +23,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control._hyperscript",
-					"match": "\\b(catch|if|else|js|log|put|remove|repeat forever|repeat for|repeat in|repeat while|repeat until event|repeat until|repeat|then|end|while|until|unless|for)\\b"
+					"match": "\\b(catch|if|else|js|log|put|remove|repeat forever|repeat\\sfor|repeat\\sin|repeat\\swhile|repeat\\suntil\\sevent|repeat\\suntil|repeat|then|end|while|until|unless|for)\\b"
 				},
 				{
 					"name": "keyword.other.command._hyperscript",
-					"match": "\\b(add|async|call|get|hide|measure|add|async|call|get|hide|measure|return|send|settle|set|show|take|throw|toggle between|toggle|transition|trigger|wait for|wait|fetch|tell|go|increment|decrement|halt|make an|make a|make)\\b"
+					"match": "\\b(add|async|call|get|hide|measure|add|async|call|get|hide|measure|return|send|settle|set|show|take|throw|toggle between|toggle|transition|trigger|wait for|wait|fetch|tell|go|increment|decrement|halt|make\\san|make\\sa|make)\\b"
 				},
 				{
 					"name": "keyword.other.feature._hyperscript",
@@ -30,10 +35,10 @@
 				},
 				{
 					"name": "keyword.operator.expression._hyperscript",
-					"match": "\\b(in|from|to|with|over|into|before|after|at end of|at start of|is an|is a|is not|is|am|as|and|or|no|closest|the|of|first|last|random|local|element|global|on|seconds|milliseconds|(\\s)s|(\\s)ms)\\b"
+					"match": "\\b(in|from|to|with|over|into|before|after|at\\send\\sof|at\\sstart\\sof|is\\san|is\\sa|is\\snot|is|am|as|and|or|no|closest|the|of|first|last|random|local|element|global|on|seconds|milliseconds|(\\s)s|(\\s)ms)\\b"
 				},
 				{
-					"name": "keyword.operator",
+					"name": "keyword.operator._hyperscript",
 					"match": "\\b(\\+|\\s-\\s|\\/|\\*|\\|->|<\\s|>|<=|>===|==|=|!==|!=|=|\\.\\.|([^\\d\\s]|^)\\.|\\%|\\||!|\\$|'s)\\b"
 				}
 			]
@@ -51,7 +56,7 @@
 					]
 				},
 				{
-					"name": "string.quoted.double._hyperscript",
+					"name": "string.quoted.single._hyperscript",
 					"begin": "'",
 					"end": "'",
 					"patterns": [
@@ -61,7 +66,7 @@
 					]
 				},
 				{
-					"name": "string.interpolated",
+					"name": "string.interpolated._hyperscript",
 					"begin": "`",
 					"end": "`",
 					"patterns": [
@@ -69,6 +74,16 @@
 							"include": "#template"
 						}
 					]
+				},
+				{
+					"name": "string.unquoted._hyperscript.nakedString",
+					"begin": "(?<=(?:fetch|send|trigger|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+)[^'\"`]",
+					"end": "\\s"
+				},
+				{
+					"name": "string.unquoted._hyperscript.eventName",
+					"begin": "(?<=(on(\\severy)?|wait\\sfor|repeat\\suntil\\sevent)(\\(.*\\))\\s+(.*or\\s)?)[^'\"`]",
+					"end": "(?=[^A-Za-z0-9.:_])"
 				}
 			]
 		},
@@ -83,7 +98,7 @@
 		"template": {
 			"patterns": [
 				{
-					"name": "meta.template.expression",
+					"name": "meta.template.expression._hyperscript",
 					"begin": "\\$\\{",
 					"end": "\\}",
 					"patterns": [
