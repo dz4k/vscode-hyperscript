@@ -113,23 +113,34 @@ repository:
   cssRefs:
     name: meta.selector._hyperscript
     patterns:
-      - name: entity.other.attribute-name.class._hyperscript
+      - name: meta.selector._hyperscript 
+          entity.other.attribute-name.class._hyperscript
         match: >-
           (?x)
           \.[\-\w\d_\$]+
-      - name: entity.other.attribute-name.id._hyperscript
+      - name: meta.selector._hyperscript
+          entity.other.attribute-name.id._hyperscript
         match: >-
           (?x)
           \#[\-\w\d_\$]+
-      - name: entity.other.attribute-name.class._hyperscript.dynamic-class
+      - name: meta.selector._hyperscript
+          entity.other.attribute-name.class._hyperscript.dynamic-class
         begin: '(?<![A-Za-z0-9\}\)\]])\.\{'
         end:   '\}'
         patterns:
           - include: $self
-      - name: entity.other.attribute-name.id._hyperscript.dynamic-class
+      - name: meta.selector._hyperscript
+          entity.other.attribute-name.id._hyperscript.dynamic-class
         begin: '(?<![A-Za-z0-9\}\)\]])\#\{'
         end:   '\}'
         patterns:
           - include: $self
+      - name: meta.embedded.line.css meta.selector._hyperscript
+        contentName: source.css
+        begin: '\<(?!\s)'
+        end: '\/\>'
+        patterns:
+          - include: '#template'
+          - include: 'source.css#selector-innards'
 scopeName: source._hyperscript
 
