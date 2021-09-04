@@ -5,6 +5,7 @@ patterns:
     begin: '--'
     end: $
   - include: '#keywords'
+  - include: '#attributeRefs'
   - include: '#punctuation'
   - include: '#strings'
   - include: '#simpleLiterals'
@@ -166,5 +167,26 @@ repository:
           name: keyword.other.command._hyperscript
       patterns:
         - include: 'source.js'
+  attributeRefs:
+    patterns:
+      # Long form
+      - name: meta.attribute._hyperscript.long-form
+        begin: '\[@([a-zA-Z\-\_]+)'
+        end: ']'
+        beginCaptures:
+          '1': { name: entity.other.attribute-name._hyperscript }
+        patterns:
+          - name: punctuation.separator.key-value._hyperscript
+            match: '\='
+          - name: entity.other.attribute-value
+            begin: '(?<=\=)'
+            end: '(?=\])'
+            patterns: 
+              - include: '#strings'
+      # Short form
+      - name: meta.attribute._hyperscript
+        match: '@([a-zA-Z\-\_]+)'
+        captures:
+          '1': { name: entity.other.attribute-name._hyperscript }
 scopeName: source._hyperscript
 

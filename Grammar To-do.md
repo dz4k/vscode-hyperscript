@@ -19,6 +19,7 @@
             - [-] ~~`send`~~
             - [-] ~~`trigger`~~
             - [ ] `transition`
+                - might be impossible and not necessary
             - [X] `eventsource`
             - [X] `socket`
     - [X] numbers
@@ -28,16 +29,16 @@
         - [ ] computed keys
     - [ ] arrays
         - these don't need highlighting i think, not sure
-- [ ] CSS refs
+- [X] CSS refs
     - [X] class
         - [X] dynamic class
     - [X] id
         - [X] dynamic id
     - [X] query
         - [X] templated query
-    - [ ] attribute
-        - [ ] short form `@href`
-        - [ ] long form `[@lang="tr"]`
+    - [X] attribute
+        - [X] short form `@href`
+        - [X] long form `[@lang="tr"]`
 - [X] builtin identifiers
     - I, me, my, it, its, result, event, target, detail, body, you, your, yourself, String, Number, Int, Float, Date, Array, HTML, Fragment, JSON, Object, Values
 - [X] [blocks](https://hyperscript.org/expressions/block-literal)

@@ -11,6 +11,9 @@
       "include": "#keywords"
     },
     {
+      "include": "#attributeRefs"
+    },
+    {
       "include": "#punctuation"
     },
     {
@@ -225,6 +228,45 @@
               "include": "source.js"
             }
           ]
+        }
+      ]
+    },
+    "attributeRefs": {
+      "patterns": [
+        {
+          "name": "meta.attribute._hyperscript.long-form",
+          "begin": "\\[@([a-zA-Z\\-\\_]+)",
+          "end": "]",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.other.attribute-name._hyperscript"
+            }
+          },
+          "patterns": [
+            {
+              "name": "punctuation.separator.key-value._hyperscript",
+              "match": "\\="
+            },
+            {
+              "name": "entity.other.attribute-value",
+              "begin": "(?<=\\=)",
+              "end": "(?=\\])",
+              "patterns": [
+                {
+                  "include": "#strings"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "meta.attribute._hyperscript",
+          "match": "@([a-zA-Z\\-\\_]+)",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name._hyperscript"
+            }
+          }
         }
       ]
     }
