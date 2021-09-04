@@ -94,7 +94,7 @@ repository:
         begin: >-
           (?x)
           (?<=
-            (?:fetch|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
+            (?:fetch|require|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
           )
           [^'"`]
         end: \s

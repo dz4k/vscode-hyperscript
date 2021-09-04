@@ -8,10 +8,10 @@
       "end": "$"
     },
     {
-      "include": "#commands"
+      "include": "#keywords"
     },
     {
-      "include": "#keywords"
+      "include": "#punctuation"
     },
     {
       "include": "#strings"
@@ -57,6 +57,26 @@
         {
           "name": "variable.language._hyperscript",
           "match": "(?x) \\b(\n  I|me|my|you|your|yourself|it|its|result|\n  event|target|detail|\n  document|body\n)\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.comma._hyperscript",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.key-value._hyperscript",
+          "match": ":"
+        },
+        {
+          "name": "meta.brace.round._hyperscript",
+          "match": "[()]"
+        },
+        {
+          "name": "meta.brace.square._hyperscript",
+          "match": "[\\[\\]]"
         }
       ]
     },
