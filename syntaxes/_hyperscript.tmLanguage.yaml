@@ -97,7 +97,7 @@ repository:
             (?:fetch|require|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
           )
           [^'"`]
-        end: \s
+        end: 'b'
   inside-string:
     patterns:
       - name: constant.character.escape._hyperscript

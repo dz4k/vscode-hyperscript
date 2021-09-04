@@ -114,8 +114,8 @@
         },
         {
           "name": "string.unquoted._hyperscript.naked-url markup.underline.link._hyperscript.naked-url",
-          "begin": "(?x) (?<=\n  (?:fetch|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+\n) [^'\"`]",
-          "end": "\\s"
+          "begin": "(?x) (?<=\n  (?:fetch|require|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+\n) [^'\"`]",
+          "end": "(?=\\s)"
         }
       ]
     },
