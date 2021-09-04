@@ -32,11 +32,11 @@
       "patterns": [
         {
           "name": "keyword.control._hyperscript",
-          "match": "(?x) \\b(\n  catch|if|else|log|put|remove|\n  repeat\\s+forever|repeat\\s+for|repeat\\s+in|repeat\\s+while|\n  repeat\\s+until\\s+event|repeat\\s+until|repeat|\n  then|end|while|until|unless|for\n)\\b"
+          "match": "(?x) \\b(\n  catch|if|else|\n  repeat\\s+forever|repeat\\s+for|repeat\\s+in|repeat\\s+while|\n  repeat\\s+until\\s+event|repeat\\s+until|repeat|\n  then|end|while|until|unless|for\n)\\b"
         },
         {
           "name": "keyword.other.command._hyperscript",
-          "match": "(?x) \\b(\n  add|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle\\s+between|toggle|\n  transition|trigger|wait\\s+for|wait|fetch|tell|go|increment|\n  decrement|halt|make\\s+an|make\\s+a|make\n)\\b"
+          "match": "(?x) \\b(\n  add|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle\\s+between|toggle|\n  transition|trigger|wait\\s+for|wait|fetch|tell|go|increment|\n  decrement|halt|make\\s+an|make\\s+a|make|log\n)\\b"
         },
         {
           "name": "keyword.control.feature._hyperscript",

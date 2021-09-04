@@ -41,4 +41,4 @@
 - [X] builtin identifiers
     - I, me, my, it, its, result, event, target, detail, body, you, your, yourself, String, Number, Int, Float, Date, Array, HTML, Fragment, JSON, Object, Values
 - [X] [blocks](https://hyperscript.org/expressions/block-literal)
-- [ ] inline JS
+- [X] inline JS

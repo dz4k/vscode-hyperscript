@@ -18,7 +18,7 @@ repository:
         match: >-
           (?x)
           \b(
-            catch|if|else|log|put|remove|
+            catch|if|else|
             repeat\s+forever|repeat\s+for|repeat\s+in|repeat\s+while|
             repeat\s+until\s+event|repeat\s+until|repeat|
             then|end|while|until|unless|for
@@ -30,7 +30,7 @@ repository:
             add|async|call|get|hide|measure|add|async|call|get|hide|measure|
             return|send|settle|set|show|take|throw|toggle\s+between|toggle|
             transition|trigger|wait\s+for|wait|fetch|tell|go|increment|
-            decrement|halt|make\s+an|make\s+a|make
+            decrement|halt|make\s+an|make\s+a|make|log
           )\b
       - name: keyword.control.feature._hyperscript
         match: >-
