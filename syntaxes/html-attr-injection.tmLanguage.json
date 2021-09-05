@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "scopeName": "source.hyperscript-html-underscore-attr.injection",
+    "injectionSelector": "R:meta.attribute.unrecognized._.html string - punctuation.definition.string, meta.attribute.unrecognized.script.html string - punctuation.definition.string, meta.attribute.data-x.data-script.html string - punctuation.definition.string",
+    "name": "meta.embedded.line._hyperscript",
+    "patterns": [
+        {
+            "begin": "(?<=[\"'])",
+            "end": "(?=[\"'])",
+            "name": "meta.embedded.line._hyperscript",
+            "patterns": [{
+                "include": "source._hyperscript"
+            }]
+        }
+    ]
+}
