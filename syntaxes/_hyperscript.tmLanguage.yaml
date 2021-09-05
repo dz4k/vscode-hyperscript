@@ -28,7 +28,7 @@ repository:
         match: >-
           (?x)
           \b(
-            add|async|call|get|hide|measure|add|async|call|get|hide|measure|
+            add|remove|put|async|call|get|hide|measure|add|async|call|get|hide|measure|
             return|send|settle|set|show|take|throw|toggle\s+between|toggle|
             transition|trigger|wait\s+for|wait|fetch|tell|go|increment|
             decrement|halt|make\s+an|make\s+a|make|log
