@@ -1,11 +1,16 @@
 {
     "name": "vscode-hyperscript-org",
     "displayName": "_hyperscript",
+    "publisher": "dz4k",
     "description": "language support for _hyperscript <https://hyperscript.org>",
-    "repository": "https://github.com/dz4k/vscode-hyperscript",
+    "icon": "logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dz4k/vscode-hyperscript.git"
+    },
     "version": "0.0.1",
     "engines": {
-        "vscode": "^1.60.0"
+        "vscode": "^1.59.0"
     },
     "categories": [
         "Programming Languages"
