@@ -43,7 +43,8 @@
         ]
     },
     "scripts": {
-        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json"
+        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json",
+        "vscode:prepublish": "npm run build"
     },
     "devDependencies": {
         "js-yaml": "^4.1.0"
