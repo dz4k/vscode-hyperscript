@@ -30,10 +30,15 @@
                 "path": "./syntaxes/_hyperscript.tmLanguage.json"
             },
             {
-                "injectTo": ["text.html.derivative"],
+                "injectTo": ["text.html"],
                 "scopeName": "source.hyperscript-html-underscore-attr.injection",
                 "path": "./syntaxes/html-attr-injection.tmLanguage.json"
-              }
+            },
+            {
+                "injectTo": ["text.html"],
+                "scopeName": "source.hyperscript-html-script-element.injection",
+                "path": "./syntaxes/html-script-element-injection.tmLanguage.json"
+            }
         ]
     },
     "scripts": {

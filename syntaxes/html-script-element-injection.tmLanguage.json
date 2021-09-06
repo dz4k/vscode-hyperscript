@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "scopeName": "source.hyperscript-html-script-element.injection",
+    "injectionSelector": "R:meta.embedded.block.html source.unknown",
+    "patterns": [
+        {
+            "begin": "(?<=(?i:type)\\s*=\\s*(\"|'|)text.hyperscript(\"|'|).*>)",
+            "end": "(?=</script)",
+            "name": "source._hyperscript",
+            "patterns": [
+                { "include": "source._hyperscript" }
+            ]
+        }
+    ]
+}
