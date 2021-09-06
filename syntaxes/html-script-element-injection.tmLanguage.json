@@ -6,7 +6,7 @@
         {
             "begin": "(?<=(?i:type)\\s*=\\s*(\"|'|)text.hyperscript(\"|'|).*>)",
             "end": "(?=</script)",
-            "name": "source._hyperscript",
+            "name": "meta.embedded.block._hyperscript",
             "patterns": [
                 { "include": "source._hyperscript" }
             ]
