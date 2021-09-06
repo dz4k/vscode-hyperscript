@@ -33,12 +33,18 @@
             {
                 "language": "_hyperscript",
                 "scopeName": "source._hyperscript",
-                "path": "./syntaxes/_hyperscript.tmLanguage.json"
+                "path": "./syntaxes/_hyperscript.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.line.js": "javascript"
+                }
             },
             {
                 "injectTo": [
                     "text.html"
                 ],
+                "embeddedLanguages": {
+                    "meta.embedded.line._hyperscript": "_hyperscript"
+                },
                 "scopeName": "source.hyperscript-html-underscore-attr.injection",
                 "path": "./syntaxes/html-attr-injection.tmLanguage.json"
             },
@@ -46,6 +52,9 @@
                 "injectTo": [
                     "text.html"
                 ],
+                "embeddedLanguages": {
+                    "meta.embedded.block._hyperscript": "_hyperscript"
+                },
                 "scopeName": "source.hyperscript-html-script-element.injection",
                 "path": "./syntaxes/html-script-element-injection.tmLanguage.json"
             }
@@ -57,5 +66,6 @@
     },
     "devDependencies": {
         "js-yaml": "^4.1.0"
-    }
+    },
+    "license": "MIT"
 }

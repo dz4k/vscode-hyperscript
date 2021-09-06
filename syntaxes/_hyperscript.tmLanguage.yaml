@@ -1,3 +1,5 @@
+%YAML 1.2
+---
 $schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 name: _hyperscript
 patterns:
@@ -5,6 +7,7 @@ patterns:
     begin: '--'
     end: $
   - include: '#strings'
+  - include: '#eventNameHack'
   - include: '#keywords'
   - include: '#attributeRefs'
   - include: '#punctuation'
@@ -25,7 +28,7 @@ repository:
             then|end|while|until|unless|for
           )\b
       - name: keyword.other.command._hyperscript
-        match: >-
+        match: &commandStarts >-
           (?x)
           \b(
             add|remove|put|async|call|get|hide|measure|add|async|call|get|hide|measure|
@@ -99,6 +102,14 @@ repository:
           )
           [^'"`]
         end: '(?=\s)'
+      - name: string.unquoted._hyperscript.event-name # see also "eventNameHack" below
+        begin: >-
+          (?x)
+          (?<=
+            (?:repeat\s*until\s*event|send|trigger)
+          )
+          [^'"`]
+        end: '(?=[^A-Za-z0-9\.:_])'
   inside-string:
     patterns:
       - name: constant.character.escape._hyperscript
@@ -109,7 +120,22 @@ repository:
         begin: \$\{
         end: \}
         patterns:
+          - include: source.hyperscript
+  eventNameHack:
+    patterns:
+      - begin: '(?<!\)\s*)\bon\b'
+        beginCaptures:
+          '0': { name: keyword.control.feature._hyperscript }
+        end: *commandStarts
+        endCaptures:
+          '0': { name: keyword.control.feature._hyperscript }
+        name: TEST.onFeatureHeader
+        patterns:
           - include: $self
+          - begin: >-
+              (?<=(\G|or)\b\s*)[^'"`\s]
+            end: '(?=[^A-Za-z0-9\.:_])'
+            name: string.unquoted._hyperscript.event-name
   simpleLiterals:
     patterns:
       - name: constant.numeric._hyperscript
@@ -189,4 +215,4 @@ repository:
         captures:
           '1': { name: entity.other.attribute-name._hyperscript }
 scopeName: source._hyperscript
-
+...

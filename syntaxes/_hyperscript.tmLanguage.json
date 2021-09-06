@@ -11,6 +11,9 @@
       "include": "#strings"
     },
     {
+      "include": "#eventNameHack"
+    },
+    {
       "include": "#keywords"
     },
     {
@@ -119,6 +122,11 @@
           "name": "string.unquoted._hyperscript.naked-url markup.underline.link._hyperscript.naked-url",
           "begin": "(?x) (?<=\n  (?:fetch|require|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+\n) [^'\"`]",
           "end": "(?=\\s)"
+        },
+        {
+          "name": "string.unquoted._hyperscript.event-name",
+          "begin": "(?x) (?<=\n  (?:repeat\\s*until\\s*event|send|trigger)\n) [^'\"`]",
+          "end": "(?=[^A-Za-z0-9\\.:_])"
         }
       ]
     },
@@ -138,7 +146,36 @@
           "end": "\\}",
           "patterns": [
             {
+              "include": "source.hyperscript"
+            }
+          ]
+        }
+      ]
+    },
+    "eventNameHack": {
+      "patterns": [
+        {
+          "begin": "(?<!\\)\\s*)\\bon\\b",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control.feature._hyperscript"
+            }
+          },
+          "end": "(?x) \\b(\n  add|remove|put|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle\\s+between|toggle|\n  transition|trigger|wait\\s+for|wait|fetch|tell|go|increment|\n  decrement|halt|make\\s+an|make\\s+a|make|log\n)\\b",
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control.feature._hyperscript"
+            }
+          },
+          "name": "TEST.onFeatureHeader",
+          "patterns": [
+            {
               "include": "$self"
+            },
+            {
+              "begin": "(?<=(\\G|or)\\b\\s*)[^'\"`\\s]",
+              "end": "(?=[^A-Za-z0-9\\.:_])",
+              "name": "string.unquoted._hyperscript.event-name"
             }
           ]
         }
