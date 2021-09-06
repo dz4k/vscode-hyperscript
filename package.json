@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/dz4k/vscode-hyperscript.git"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.59.0"
     },
@@ -36,12 +36,16 @@
                 "path": "./syntaxes/_hyperscript.tmLanguage.json"
             },
             {
-                "injectTo": ["text.html"],
+                "injectTo": [
+                    "text.html"
+                ],
                 "scopeName": "source.hyperscript-html-underscore-attr.injection",
                 "path": "./syntaxes/html-attr-injection.tmLanguage.json"
             },
             {
-                "injectTo": ["text.html"],
+                "injectTo": [
+                    "text.html"
+                ],
                 "scopeName": "source.hyperscript-html-script-element.injection",
                 "path": "./syntaxes/html-script-element-injection.tmLanguage.json"
             }
