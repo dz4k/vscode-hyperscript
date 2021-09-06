@@ -4,10 +4,10 @@ patterns:
   - name: comment.line.double-dash._hyperscript
     begin: '--'
     end: $
+  - include: '#strings'
   - include: '#keywords'
   - include: '#attributeRefs'
   - include: '#punctuation'
-  - include: '#strings'
   - include: '#simpleLiterals'
   - include: '#cssRefs'
   - include: '#inlineJS'
