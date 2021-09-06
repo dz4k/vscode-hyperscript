@@ -2,6 +2,7 @@
     "name": "vscode-hyperscript-org",
     "displayName": "_hyperscript",
     "description": "language support for _hyperscript <https://hyperscript.org>",
+    "repository": "https://github.com/dz4k/vscode-hyperscript",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.60.0"
