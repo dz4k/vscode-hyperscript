@@ -7,6 +7,7 @@ patterns:
   - name: comment.line.double-dash._hyperscript
     begin: '--'
     end: $
+  - include: '#possessive'
   - include: '#strings'
   - include: '#eventNameHack'
   - include: '#keywords'
@@ -16,6 +17,15 @@ patterns:
   - include: '#cssRefs'
   - include: '#inlineJS'
 repository:
+  possessive:
+    patterns:
+      - name: keyword.operator._hyperscript
+        match: >-
+          (?x)
+          \+ | (?<=\s+) - (?=\s+) | \/ | \* |
+          \\ | -> |
+          <(?= \s+) | > | <= | >= | == | = | !== | != | =| \.\. |
+          (?<= [A-Za-z0-9\}\)\]] ) \. | \% | \| | ! | \$ | 's
   keywords:
     name: keyword._hyperscript
     patterns:
@@ -51,13 +61,6 @@ repository:
             at\s+end\s+of|at\s+start\s+of|is\s+an|is\s+a|is\s+not|
             is|am|as|and|or|no|closest|the|of|first|last|random|on|
             seconds|milliseconds|(?<= \s+)s|(?<= \s+)ms)\b
-      - name: keyword.operator._hyperscript
-        match: >-
-          (?x)
-          \+ | (?<=\s+) - (?=\s+) | \/ | \* |
-          \\ | -> |
-          <(?= \s+) | > | <= | >= | == | = | !== | != | =| \.\. |
-          (?<= [A-Za-z0-9\}\)\]] ) \. | \% | \| | ! | \$ | 's
       - name: storage.modifier._hyperscript
         match: '\b(local|element|module|global)\b'
       - name: variable.language._hyperscript
