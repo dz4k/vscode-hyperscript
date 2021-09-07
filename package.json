@@ -40,7 +40,8 @@
             },
             {
                 "injectTo": [
-                    "text.html"
+                    "text.html",
+                    "meta.embedded.block.html"
                 ],
                 "embeddedLanguages": {
                     "meta.embedded.line._hyperscript": "_hyperscript"
@@ -50,7 +51,8 @@
             },
             {
                 "injectTo": [
-                    "text.html"
+                    "text.html",
+                    "meta.embedded.block.html"
                 ],
                 "embeddedLanguages": {
                     "meta.embedded.block._hyperscript": "_hyperscript"
