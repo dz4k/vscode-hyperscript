@@ -1,5 +1,6 @@
 %YAML 1.2
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 $schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 name: _hyperscript
 patterns:
