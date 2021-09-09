@@ -8,6 +8,9 @@
       "end": "$"
     },
     {
+      "include": "#possessive"
+    },
+    {
       "include": "#strings"
     },
     {
@@ -33,6 +36,14 @@
     }
   ],
   "repository": {
+    "possessive": {
+      "patterns": [
+        {
+          "name": "keyword.operator._hyperscript",
+          "match": "(?x) \\+ | (?<=\\s+) - (?=\\s+) | \\/ | \\* | \\\\ | -> | <(?= \\s+) | > | <= | >= | == | = | !== | != | =| \\.\\. | (?<= [A-Za-z0-9\\}\\)\\]] ) \\. | \\% | \\| | ! | \\$ | 's"
+        }
+      ]
+    },
     "keywords": {
       "name": "keyword._hyperscript",
       "patterns": [
@@ -51,10 +62,6 @@
         {
           "name": "keyword.operator.expression._hyperscript",
           "match": "(?x) \\b(\n  in|from|to|with|over|into|before|after|\n  at\\s+end\\s+of|at\\s+start\\s+of|is\\s+an|is\\s+a|is\\s+not|\n  is|am|as|and|or|no|closest|the|of|first|last|random|on|\n  seconds|milliseconds|(?<= \\s+)s|(?<= \\s+)ms)\\b"
-        },
-        {
-          "name": "keyword.operator._hyperscript",
-          "match": "(?x) \\+ | (?<=\\s+) - (?=\\s+) | \\/ | \\* | \\\\ | -> | <(?= \\s+) | > | <= | >= | == | = | !== | != | =| \\.\\. | (?<= [A-Za-z0-9\\}\\)\\]] ) \\. | \\% | \\| | ! | \\$ | 's"
         },
         {
           "name": "storage.modifier._hyperscript",
@@ -161,12 +168,7 @@
               "name": "keyword.control.feature._hyperscript"
             }
           },
-          "end": "(?x) \\b(\n  add|remove|put|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle\\s+between|toggle|\n  transition|trigger|wait\\s+for|wait|fetch|tell|go|increment|\n  decrement|halt|make\\s+an|make\\s+a|make|log\n)\\b",
-          "endCaptures": {
-            "0": {
-              "name": "keyword.control.feature._hyperscript"
-            }
-          },
+          "end": "(?x)\\b(?=(\n  catch|if|else|\n  repeat\\s+forever|repeat\\s+for|repeat\\s+in|repeat\\s+while|\n  repeat\\s+until\\s+event|repeat\\s+until|repeat|\n  then|end|while|until|unless|for\n  |\n  add|remove|put|async|call|get|hide|measure|add|async|call|get|hide|measure|\n  return|send|settle|set|show|take|throw|toggle\\s+between|toggle|\n  transition|trigger|wait\\s+for|wait|fetch|tell|go|increment|\n  decrement|halt|make\\s+an|make\\s+a|make|log\n  |\n  on|def|worker|eventsource|socket|init|behavior|install|require\n))\\b",
           "name": "TEST.onFeatureHeader",
           "patterns": [
             {
