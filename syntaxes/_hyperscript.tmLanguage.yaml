@@ -103,8 +103,8 @@ repository:
           (?x)
           (?<=
             (?:fetch|require|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
+            [^'"`]
           )
-          [^'"`]
         end: '(?=\s)'
       - name: string.unquoted._hyperscript.event-name # see also "eventNameHack" below
         begin: >-
