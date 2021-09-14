@@ -126,9 +126,9 @@
           ]
         },
         {
-          "name": "string.unquoted._hyperscript.naked-url markup.underline.link._hyperscript.naked-url",
-          "begin": "(?x) (?<=\n  (?:fetch|require|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\\s+\n  [^'\"`]\n)",
-          "end": "(?=\\s)"
+          "contentName": "string.unquoted._hyperscript.naked-url markup.underline.link._hyperscript.naked-url",
+          "begin": "(?x) (?<=\n  (?:fetch|require|eventsource\\s+[\\w.:]+\\s+from|socket\\s+[\\w.:]+)\n) \\s* (?!['\"`\\s])",
+          "end": "\\s"
         },
         {
           "name": "string.unquoted._hyperscript.event-name",

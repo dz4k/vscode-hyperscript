@@ -97,15 +97,16 @@ repository:
         end: '`'
         patterns:
           - include: '#template'
-      - name: string.unquoted._hyperscript.naked-url 
+      - contentName: string.unquoted._hyperscript.naked-url 
           markup.underline.link._hyperscript.naked-url
         begin: >-
           (?x)
           (?<=
-            (?:fetch|require|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)\s+
-            [^'"`]
+            (?:fetch|require|eventsource\s+[\w.:]+\s+from|socket\s+[\w.:]+)
           )
-        end: '(?=\s)'
+          \s*
+          (?!['"`\s])
+        end: '\s'
       - name: string.unquoted._hyperscript.event-name # see also "eventNameHack" below
         begin: >-
           (?x)
