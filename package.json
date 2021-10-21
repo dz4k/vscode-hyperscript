@@ -59,6 +59,16 @@
                 },
                 "scopeName": "source.hyperscript-html-script-element.injection",
                 "path": "./syntaxes/html-script-element-injection.tmLanguage.json"
+            },
+            {
+                "injectTo": [
+                    "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block._hyperscript": "_hyperscript"
+                },
+                "scopeName": "markdown._hyperscript.codeblock",
+                "path": "./syntaxes/markdown-injection.tmLanguage.json"
             }
         ]
     },
