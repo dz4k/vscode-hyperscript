@@ -60,7 +60,9 @@ repository:
             in|from|to|with|over|into|before|after|
             at\s+end\s+of|at\s+start\s+of|is\s+an|is\s+a|is\s+not|
             is|am|as|and|or|no|closest|the|of|first|last|random|on|
-            seconds|milliseconds|(?<= \s+)s|(?<= \s+)ms)\b
+            seconds|milliseconds|(?<= \s+)s|(?<= \s+)ms)\b|
+            (?<=on\s+)every|(debounced|throttled) \s+ at|
+            queue|(?<=queue\s+)(all|first|last|none)
       - name: storage.modifier._hyperscript
         match: '\b(local|element|module|global)\b'
       - name: variable.language._hyperscript

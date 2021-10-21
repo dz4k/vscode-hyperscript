@@ -61,7 +61,7 @@
         },
         {
           "name": "keyword.operator.expression._hyperscript",
-          "match": "(?x) \\b(\n  in|from|to|with|over|into|before|after|\n  at\\s+end\\s+of|at\\s+start\\s+of|is\\s+an|is\\s+a|is\\s+not|\n  is|am|as|and|or|no|closest|the|of|first|last|random|on|\n  seconds|milliseconds|(?<= \\s+)s|(?<= \\s+)ms)\\b"
+          "match": "(?x) \\b(\n  in|from|to|with|over|into|before|after|\n  at\\s+end\\s+of|at\\s+start\\s+of|is\\s+an|is\\s+a|is\\s+not|\n  is|am|as|and|or|no|closest|the|of|first|last|random|on|\n  seconds|milliseconds|(?<= \\s+)s|(?<= \\s+)ms)\\b|\n  (?<=on\\s+)every|(debounced|throttled) \\s+ at|\n  queue|(?<=queue\\s+)(all|first|last|none)"
         },
         {
           "name": "storage.modifier._hyperscript",
