@@ -13,7 +13,8 @@
         "vscode": "^1.59.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "contributes": {
         "languages": [
@@ -70,10 +71,16 @@
                 "scopeName": "markdown._hyperscript.codeblock",
                 "path": "./syntaxes/markdown-injection.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "_hyperscript",
+                "path": "./snippets/snippets.json"
+            }
         ]
     },
     "scripts": {
-        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json",
+        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json && js-yaml snippets/snippets.yaml > snippets/snippets.json",
         "vscode:prepublish": "npm run build"
     },
     "devDependencies": {

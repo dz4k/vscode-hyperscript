@@ -1,0 +1,50 @@
+
+Function:
+  prefix: def
+  description: A function definition
+  body:
+    - def f($1)
+    - "\t$0"
+    - end
+
+Repeat While loop:
+  prefix: [while, repeatwhile]
+  description: A loop that repeats while a condition is true.
+  body:
+    - repeat while $1
+    - "\t$0"
+    - end
+
+Repeat Until loop:
+  prefix: [until, repeatuntil]
+  description: A loop that repeats while a condition is **not** true.
+  body:
+    - repeat until $1
+    - "\t$0"
+    - end
+
+Repeat N Times loop:
+  prefix: [times, repeattimes]
+  description: A loop that repeats a given number of times.
+  body:
+    - repeat $1 times
+    - "\t$0"
+    - end
+
+Infinite loop:
+  prefix: [forever, repeatforever]
+  description: A loop that keeps going forever
+  body:
+    - repeat forever
+    - "\t$0"
+    - end
+
+Repeat Until Event loop:
+  prefix: [tilevt, untilevent, repeatuntilevent]
+  description: A loop that repeats until a given event occurs.
+    The "from" part is optional.
+  body:
+    - repeat until event $1 from $2
+    - "\t$0"
+    - end
+
