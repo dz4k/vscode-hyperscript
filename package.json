@@ -80,11 +80,12 @@
         ]
     },
     "scripts": {
-        "build": "js-yaml syntaxes/_hyperscript.tmLanguage.yaml > syntaxes/_hyperscript.tmLanguage.json && js-yaml snippets/snippets.yaml > snippets/snippets.json",
+        "build": "node build/build.js",
         "vscode:prepublish": "npm run build"
     },
     "devDependencies": {
-        "js-yaml": "^4.1.0"
+        "js-yaml": "^4.1.0",
+        "plist2": "^1.1.2"
     },
     "license": "MIT"
 }

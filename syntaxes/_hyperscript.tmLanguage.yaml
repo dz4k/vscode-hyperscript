@@ -9,7 +9,10 @@ patterns:
     end: $
   - include: '#possessive'
   - include: '#strings'
+  - include: '#nakedStrings'
+    com.denizaksimsek.badOnSublime: true
   - include: '#eventNameHack'
+    com.denizaksimsek.badOnSublime: true
   - include: '#keywords'
   - include: '#attributeRefs'
   - include: '#punctuation'
@@ -22,10 +25,10 @@ repository:
       - name: keyword.operator._hyperscript
         match: >-
           (?x)
-          \+ | (?<=\s+) - (?=\s+) | \/ | \* |
+          \+ | (?<=\s) - (?=\s) | \/ | \* |
           \\ | -> |
-          <(?= \s+) | > | <= | >= | == | = | !== | != | =| \.\. |
-          (?<= [A-Za-z0-9\}\)\]] ) \. | \% | \| | ! | \$ | 's
+          <(?= \s) | > | <= | >= | == | = | !== | != | =| \.\. |
+          (?<=[A-Za-z0-9\}\)\]]) \. | \% | \| | ! | \$ | 's
   keywords:
     name: keyword._hyperscript
     patterns:
@@ -60,9 +63,9 @@ repository:
             in|from|to|with|over|into|before|after|
             at\s+end\s+of|at\s+start\s+of|is\s+an|is\s+a|is\s+not|
             is|am|as|and|or|no|closest|the|of|first|last|random|on|
-            seconds|milliseconds|(?<= \s+)s|(?<= \s+)ms)\b|
-            (?<=on\s+)every|(debounced|throttled) \s+ at|
-            queue|(?<=queue\s+)(all|first|last|none)
+            seconds|milliseconds|(?<=\s)s|(?<=\s)ms)\b|
+            (?<=on\s)every|(debounced|throttled) \s+ at|
+            queue|(?<=queue\s)(all|first|last|none)
       - name: storage.modifier._hyperscript
         match: '\b(local|element|module|global)\b'
       - name: variable.language._hyperscript
@@ -99,7 +102,10 @@ repository:
         end: '`'
         patterns:
           - include: '#template'
-      - contentName: string.unquoted._hyperscript.naked-url 
+  nakedStrings:
+    com.denizaksimsek.badOnSublime: true
+    patterns:
+      - contentName: string.unquoted._hyperscript.naked-url
           markup.underline.link._hyperscript.naked-url
         begin: >-
           (?x)
@@ -127,8 +133,9 @@ repository:
         begin: \$\{
         end: \}
         patterns:
-          - include: source.hyperscript
+          - include: source._hyperscript
   eventNameHack:
+    com.denizaksimsek.badOnSublime: true
     patterns:
       - begin: '(?<!\)\s*)\bon\b'
         beginCaptures:
@@ -169,7 +176,7 @@ repository:
   cssRefs:
     name: meta.selector._hyperscript
     patterns:
-      - name: meta.selector._hyperscript 
+      - name: meta.selector._hyperscript
           entity.other.attribute-name.class._hyperscript
         match: >-
           (?x)
@@ -225,7 +232,7 @@ repository:
           - name: entity.other.attribute-value
             begin: '(?<=\=)'
             end: '(?=\])'
-            patterns: 
+            patterns:
               - include: '#strings'
       # Short form
       - name: meta.attribute._hyperscript
