@@ -1,0 +1,27 @@
+%YAML 1.2
+---
+name: HTML (_hyperscript)
+scope: text.html.basic
+version: 2
+
+extends: Packages/HTML/HTML.sublime-syntax
+
+contexts:
+  script-hyperscript:
+    - meta_scope: meta.tag.script.begin.html
+    - include: script-common
+    - match: '>'
+      scope: punctuation.definition.tag.end.html
+      set:
+        - include: script-close-tag
+        - match: (?=\S)
+          embed: scope:source._hyperscript
+          embed_scope: source._hyperscript.embedded.html
+          escape: (?i)(?=(?:-->\s*)?</script)
+
+  script-type-decider:
+    - match: (?=(?i:text/hyperscript{{unquoted_attribute_break}}|'text/hyperscript'|"text/hyperscript"))
+      set:
+        - script-hyperscript
+        - tag-generic-attribute-meta
+        - tag-generic-attribute-value
