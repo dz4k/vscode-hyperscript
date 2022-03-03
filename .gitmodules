@@ -1,0 +1,3 @@
+[submodule "hyperscript-tmlanguage"]
+	path = hyperscript-tmlanguage
+	url = https://github.com/dz4k/hyperscript-tmlanguage

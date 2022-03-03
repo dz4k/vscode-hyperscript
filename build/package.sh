@@ -24,3 +24,4 @@ build_subl() {
 npm run build
 build_vscode
 build_subl
+
